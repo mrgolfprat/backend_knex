@@ -1,0 +1,29 @@
+{
+    "TOKEN": {
+        "ACCESS_TOKEN_KEY": "GDRzyZ,FZ~,jX97CZZ@-eu;!MZy(j97FfEw*rS)i{M0D4]0P]NL:KcOV#SaBYKl",
+        "ACCESS_TOKEN_EXPIRE": 86400,
+        "REFRESH_TOKEN_KEY": "!c-X&#^W./!#2L&$!T>r%OEXDCB^_078r-no&8;YUhZ{|OZfb&U?B:vLdytuP!Q",
+        "REFRESH_TOKEN_EXPIRE": 7776000
+    },
+    "DATABASE": {
+        "production": {
+            "host": "test",
+            "user": "test",
+            "password": "test",
+            "database": "test"
+        },
+        "development": {
+            "host": "localhost",
+            "user": "test",
+            "password": "test",
+            "database": "test"
+        }
+    },
+    "COOKIE": {
+        "COOKIE_KEY": "@Dtrb@z@u)6NN)hZiq~a:NUOBx2D8~<DSR6XF<Bs@r>|^BaM6ba<[g/3_yF6F3.",
+        "COOKIE_EXPIRE": 7777000
+    },
+    "SERVER": {
+        "ORIGIN": "http://localhost:3100/api/v1/static/"
+    }
+}
