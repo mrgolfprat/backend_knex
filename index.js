@@ -5,6 +5,7 @@ const helmet = require('helmet')
 const cors = require('cors')
 const path = require('path')
 const COOKIE = require('config').get('COOKIE')
+const rateLimit = require('express-rate-limit')
 const { debug } = require('./config/debugging')
 require('dotenv').config()
 require('./knex')
@@ -43,7 +44,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 app.use(bodyParser.json({ limit: '50mb' }))
 
 // cookies
-app.set('trust proxy', 1)
+app.enable('trust proxy')
 app.use(cookieSession({
     name: 'cf_1',
     keys: [COOKIE.COOKIE_KEY],
@@ -52,9 +53,15 @@ app.use(cookieSession({
     httpOnly: true,
 }))
 
+// set rate limit
+const limiter = rateLimit({
+    windowMs: 60 * 1000,
+    max: 300
+})
+app.use(limiter)
+
 // static
 app.use(version + '/static', express.static(path.join(__dirname, 'public')))
-
 
 // route
 const auth = require('./api/auth/AuthRoute')
