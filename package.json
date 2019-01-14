@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "DEBUG=debuging:* mocha $(find test -name '*.js')",
     "dev": "DEBUG=debuging:* NODE_ENV=development nodemon index.js",
     "migrate": "NODE_ENV=development knex migrate:make"
   },
@@ -24,10 +24,16 @@
     "helmet": "^3.15.0",
     "knex": "^0.16.2",
     "moment-timezone": "^0.5.23",
+    "multer": "^1.4.1",
     "mysql": "^2.16.0",
+    "randomstring": "^1.1.5",
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.9"
   }
 }

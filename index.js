@@ -7,6 +7,8 @@ const path = require('path')
 const COOKIE = require('config').get('COOKIE')
 const rateLimit = require('express-rate-limit')
 const { debug } = require('./config/debugging')
+const { createApi } = require('./api/index')
+
 require('dotenv').config()
 require('./knex')
 
@@ -64,8 +66,6 @@ app.use(limiter)
 app.use(version + '/static', express.static(path.join(__dirname, 'public')))
 
 // route
-const auth = require('./api/auth/AuthRoute')
-
-app.use(version + '/auth', auth)
+createApi(app, version)
 
 app.listen(port, () => debug("listening at port %o", port))
