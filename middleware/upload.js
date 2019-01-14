@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         if (!file.originalname.match(/\.(txt)$/ig)) {
             cb(new Error('Only txt files are allowed'))
         } else {
-            const file_name = `${randomstring.generate(10)}.txt`
+            const file_name = `${randomstring.generate(10)}.${file.mimetype.split('/')[1]}`
             cb(null, file_name);
         }
     },
